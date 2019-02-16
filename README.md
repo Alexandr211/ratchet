@@ -1,6 +1,4 @@
-# ratchet
-The example of using Websockets (Ratchet php lib) for optimizing web apps 
-Fast implementation of Real Time frontend data updates by Backend pushes to Websockets server
+# Fast implementation of Real Time frontend data updates by Backend pushes to Websockets server (Ratchet php lib)
 -----------------------------------------------------------------------------------------------
 
 1. This solution is designed to optimize the performance of web applications which have the need of real time updates the client-side information from databases and other sources on the backend, depending on various events.
