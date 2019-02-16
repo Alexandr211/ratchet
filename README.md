@@ -2,20 +2,20 @@
 -----------------------------------------------------------------------------------------------
 
 1. This solution is designed to optimize the performance of web applications which have the need of real time updates the client-side information from databases and other sources on the backend, depending on various events.
-The next logic can be implemented.
-1.1. initial loading / updating of the page - information is loaded into widgets for one-time ajax requests!
-1.2. real time information is put to the widgets via Websocket without periodic ajax requests to the backend from the frontend.
+<br>The next logic can be implemented.
+<br>1.1. initial loading / updating of the page - information is loaded into widgets for one-time ajax requests!
+<br>1.2. real time information is put to the widgets via Websocket without periodic ajax requests to the backend from the frontend.
 
 The example Yii2 installation:
-2. Installation via Composer the php library - Ratchet (www.socketo.me) in the app.
-3. Install the ZeroMQ library (libzmq) and the PECL extension for PHP Bindings.
-4. Install React/ZMQ in the app.
-5. The core of logic are:
-5.1. PushserverController.php - It's the engine of WS server! You must configure tcp (default to localhost)!
-5.2. Pusher.php-backend model that registers customers-users depending on their categories and provides WebSocket broadcast real time information to the customers from the Backend.
-5.3. ZMQ Transport Protocol from PHP to WS server. The logic is represented in the WebhookparseController.php, but can be implemented in any appropriate method on the Backend.
+<br>2. Installation via Composer the php library - Ratchet (www.socketo.me) in the app.
+<br>3. Install the ZeroMQ library (libzmq) and the PECL extension for PHP Bindings.
+<br>4. Install React/ZMQ in the app.
+<br>5. The core of logic are:
+<br>5.1. PushserverController.php - It's the engine of WS server! You must configure tcp (default to localhost)!
+<br>5.2. Pusher.php-backend model that registers customers-users depending on their categories and provides WebSocket broadcast real time information to the customers from the Backend.
+<br>5.3. ZMQ Transport Protocol from PHP to WS server. The logic is represented in the WebhookparseController.php, but can be implemented in any appropriate method on the Backend.
 You must configure tcp also!
-An example of the Protocol implementation is below.
+<br>An example of the Protocol implementation is below.
 // ZMQ transport Data in array to Websocket server -------------------------
                         
         $entryData = array(
@@ -30,9 +30,9 @@ An example of the Protocol implementation is below.
             
         // ------------------------------------------------------------------------
         
-5.4. The Protocol of the clients registration by Websocket server and receiving by them real time information in the form of an array of data is realized in the ws.js that must be registered in the appropriate View. In this case, use autobahn.min.js in the view for the correct operation of the script. 
+<br>5.4. The Protocol of the clients registration by Websocket server and receiving by them real time information in the form of an array of data is realized in the ws.js that must be registered in the appropriate View. In this case, use autobahn.min.js in the view for the correct operation of the script. 
 You also need to configure ws address!        
-An example is below.
+<br>An example is below.
 //---------------------------------------------------------------------------------
 if (!window.WebSocket) {
     window.alert("Your browser does not support WebSocket!");
@@ -70,6 +70,6 @@ if (!window.WebSocket) {
 
 // --------------------------------------------------------------------------------
 
-6. Use Supervisor to run your WS server.
-7. Recommended server configuration - http://socketo.me/docs/deploy
-8. Maximum limit of the open connections is 1024 by default. To increase the limit - http://socketo.me/docs/deploy
+<br>6. Use Supervisor to run your WS server.
+<br>. Recommended server configuration - http://socketo.me/docs/deploy
+<br>8. Maximum limit of the open connections is 1024 by default. To increase the limit - http://socketo.me/docs/deploy
