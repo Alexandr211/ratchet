@@ -15,9 +15,8 @@
 <br>5.2. Pusher.php-backend model that registers customers-users depending on their categories and provides WebSocket broadcast real time information to the customers from the Backend.
 <br>5.3. ZMQ Transport Protocol from PHP to WS server. The logic is represented in the WebhookparseController.php, but can be implemented in any appropriate method on the Backend.
 You must configure tcp also!
-<br>
 <br>An example of the Protocol implementation is below.
-<br> ZMQ transport Data in array to Websocket server -------------------------
+<br> ZMQ transport Data in array to Websocket server.
                         
         $entryData = array(
         'category' => 'MainCategory',
@@ -29,8 +28,7 @@ You must configure tcp also!
         $socket->connect("tcp://127.0.0.1:5555");
         $socket->send(json_encode($entryData));
             
-        // ------------------------------------------------------------------------
-        
+                
 <br>5.4. The Protocol of the clients registration by Websocket server and receiving by them real time information in the form of an array of data is realized in the ws.js that must be registered in the appropriate View. In this case, use autobahn.min.js in the view for the correct operation of the script. 
 You also need to configure ws address!   
 <br>
